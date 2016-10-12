@@ -176,6 +176,7 @@ LOCAL_CFLAGS += -DVERSION=\"5.54\" \
                 -Warray-bounds
 
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib $(LOCAL_PATH)/src/shared
+LOCAL_SHARED_LIBRARIES := libcutils
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
 
