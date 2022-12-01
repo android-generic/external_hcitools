@@ -95,7 +95,6 @@ LOCAL_SRC_FILES := \
                  hciattach_qualcomm.c \
                  hciattach_intel.c \
                  hciattach_bcm43xx.c \
-                 hciattach_rtk.c \
                  lib/bluetooth.c \
                  lib/hci.c
 LOCAL_CFLAGS += \
@@ -104,7 +103,41 @@ LOCAL_CFLAGS += \
                 -fno-strict-overflow -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -Wno-for-loop-analysis -Wno-format \
-                -DFIRMWARE_DIR=\"/etc/firmware\" \
+                -DFIRMWARE_DIR=\"/system/lib/firmware\" \
+                -D_FORTIFY_SOURCE=2 \
+                -fstack-protector-strong \
+                -Wno-conversion-null \
+                -Wnull-dereference \
+                -Werror \
+                -Warray-bounds
+
+LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := rtk_hciattach
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_SRC_FILES := \
+                 hciattach.c \
+                 hciattach_rtk.c \
+                 hciattach_st.c \
+                 hciattach_ti.c \
+                 hciattach_tialt.c \
+                 hciattach_ath3k.c \
+                 hciattach_qualcomm.c \
+                 hciattach_intel.c \
+                 hciattach_bcm43xx.c \
+                 lib/bluetooth.c \
+                 lib/hci.c
+LOCAL_CFLAGS += \
+                -Wno-unused-parameter -Wno-pointer-arith \
+                -Wno-missing-field-initializers \
+                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fwrapv \
+                -Wno-for-loop-analysis -Wno-format \
+                -DFIRMWARE_DIR=\"/system/lib/firmware\" \
                 -D_FORTIFY_SOURCE=2 \
                 -fstack-protector-strong \
                 -Wno-conversion-null \

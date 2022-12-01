@@ -306,24 +306,14 @@ static int ag6xx_init(int fd, struct uart_t *u, struct termios *ti)
 //add realtek Bluetooth init and post function.
 static int realtek_init(int fd, struct uart_t *u, struct termios *ti)
 {
-       int ret;
-       fprintf(stderr, "Realtek Bluetooth init uart with init speed:%d, \
-	final_speed:%d, type:HCI UART %s\n", u->init_speed, u->speed,
-	(u->proto == HCI_UART_H4)? "H4":"H5" );
-       ret = rtk_init(fd, u->proto, u->speed, ti);
-       if (ret > 0) {
-               u->speed = ret;
-               ret = 0;
-       }
-
-       return ret;
-
+	fprintf(stderr, "Realtek Bluetooth init uart with init speed:%d, final_speed:%d, type:HCI UART %s\n", u->init_speed, u->speed, (u->proto == HCI_UART_H4)? "H4":"H5" );
+	return rtk_init(fd, u->proto, u->speed, ti);
 }
 
 static int realtek_post(int fd, struct uart_t *u, struct termios *ti)
 {
-       fprintf(stderr, "Realtek Bluetooth post process\n");
-       return rtk_post(fd, u->proto, ti);
+	fprintf(stderr, "Realtek Bluetooth post process\n");
+	return rtk_post(fd, u->proto, ti);
 }
 
 
@@ -1442,7 +1432,9 @@ int main(int argc, char *argv[])
 
 	/* 10 seconds should be enough for initialization */
 	alarm(to);
-	bcsp_max_retries = to;
+#if 0
+        bcsp_max_retries = to;
+#endif
 
 	n = init_uart(dev, u, send_break, raw);
 	if (n < 0) {
