@@ -148,3 +148,34 @@ LOCAL_CFLAGS += \
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := btattach
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_SRC_FILES := \
+ 	        btattach.c \
+	        src/shared/mainloop.c \
+	        src/shared/mainloop-notify.c \
+	        src/shared/io-mainloop.c \
+	        src/shared/hci.c \
+	        src/shared/queue.c \
+	        src/shared/util.c \
+        	src/shared/timeout-mainloop.c
+LOCAL_CFLAGS += -DVERSION=\"5.54\" \
+                -Wno-unused-parameter -Wno-pointer-arith \
+                -Wno-missing-field-initializers \
+                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fwrapv \
+                -Wno-macro-redefined \
+                -D_FORTIFY_SOURCE=2 \
+                -fstack-protector-strong \
+                -Wno-conversion-null \
+                -Wnull-dereference \
+                -Werror \
+                -Warray-bounds
+
+LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib $(LOCAL_PATH)/src/shared
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_EXECUTABLE)
+
