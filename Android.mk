@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := hcitool.c \
 		   src/oui.c
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -D_FORTIFY_SOURCE=2 \
                 -fstack-protector-strong \
@@ -30,7 +30,7 @@ LOCAL_SRC_FILES := hciconfig.c csr.c
 LOCAL_SRC_FILES += lib/bluetooth.c lib/hci.c
 LOCAL_CFLAGS += -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -D_FORTIFY_SOURCE=2 \
                 -fstack-protector-strong \
@@ -71,7 +71,7 @@ LOCAL_SRC_FILES += lib/bluetooth.c lib/hci.c lib/sdp.c
 LOCAL_CFLAGS += -DVERSION=\"5.54\" \
                 -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -Wno-macro-redefined \
                 -D_FORTIFY_SOURCE=2 \
@@ -104,7 +104,7 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS += \
                 -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -Wno-for-loop-analysis -Wno-format \
                 -DFIRMWARE_DIR=\"/system/lib/firmware\" \
@@ -139,7 +139,7 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS += \
                 -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -Wno-for-loop-analysis -Wno-format \
                 -DFIRMWARE_DIR=\"/system/lib/firmware\" \
@@ -171,7 +171,7 @@ LOCAL_SRC_FILES := \
 LOCAL_CFLAGS += -DVERSION=\"5.54\" \
                 -Wno-unused-parameter -Wno-pointer-arith \
                 -Wno-missing-field-initializers \
-                -fno-strict-overflow -fno-delete-null-pointer-checks \
+                -fno-delete-null-pointer-checks \
                 -fwrapv \
                 -Wno-macro-redefined \
                 -D_FORTIFY_SOURCE=2 \
