@@ -18,7 +18,6 @@ LOCAL_CFLAGS += -Wno-unused-parameter -Wno-pointer-arith \
                 -Werror \
                 -Warray-bounds
 
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/hcitool $(TARGET_OUT)/bin/hcitool
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib $(LOCAL_PATH)/src
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -39,7 +38,6 @@ LOCAL_CFLAGS += -Wno-unused-parameter -Wno-pointer-arith \
                 -Werror \
                 -Warray-bounds
 
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/hciconfig $(TARGET_OUT)/bin/hciconfig
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -80,8 +78,6 @@ LOCAL_CFLAGS += -DVERSION=\"5.54\" \
                 -Wnull-dereference \
                 -Werror \
                 -Warray-bounds
-
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/btmon $(TARGET_OUT)/bin/btmon
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib $(LOCAL_PATH)/src/shared
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -115,7 +111,6 @@ LOCAL_CFLAGS += \
                 -Werror \
                 -Warray-bounds
 
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/hciattach $(TARGET_OUT)/bin/hciattach
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -150,7 +145,6 @@ LOCAL_CFLAGS += \
                 -Werror \
                 -Warray-bounds
 
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/rtk_hciattach $(TARGET_OUT)/bin/rtk_hciattach
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -181,7 +175,6 @@ LOCAL_CFLAGS += -DVERSION=\"5.54\" \
                 -Werror \
                 -Warray-bounds
 
-LOCAL_POST_INSTALL_CMD := ln -sf /vendor/bin/btattach $(TARGET_OUT)/bin/btattach
 LOCAL_C_INCLUDES := $(KERNEL_HEADERS) $(LOCAL_PATH)/lib $(LOCAL_PATH)/src/shared
 LOCAL_SHARED_LIBRARIES := libcutils
 LOCAL_MODULE_TAGS := optional
